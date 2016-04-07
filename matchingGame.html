@@ -3,15 +3,39 @@
   <head>
     <style>
       img {position:absolute}
-      div {position:absolute; width:50%; height:50%}
-      #rightSide {left:50%; border-left:1px solid black}
-
+      div {position:absolute; width:500px; height:500px}
+      #rightSide {left:500px; border-left:1px solid black}
     </style>
+    <script>
+    'use strick';
+
+
+      function randomNum(){
+        var num = Math.random()*80;
+        return Math.floor(num);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="generateFaces();">
     <h1> Matching Game </h1>
     <p> Click on the extra smiling face on the left </p>
     <div id="leftSide"> </div>
     <div id="rightSide"> </div>
+
+    <script>
+      var numberOfFaces = 5;
+      var theLeftSideDiv = document.getElementById("leftSide");
+
+      function generateFaces(){
+        for(let i=0;i<numberOfFaces;++i){
+          var theNode = document.createElement("img");
+          theNode.src = 'http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png';
+          theNode.style.left = randomNum()+'%';
+          theNode.style.top = randomNum()+'%';
+          theLeftSideDiv.appendChild(theNode);
+        }
+      }
+
+    </script>
   </body>
 </html>
